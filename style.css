@@ -5,13 +5,24 @@
     box-sizing: border-box;
 }
 
+h2 {
+    font-family: 'Pattaya', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    font-style: normal;
+    text-align: center;
+}
+
+h2 i{
+    margin-right: 20px;
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(60deg, rgb(128, 170, 233), rgb(145, 68, 5));
     padding: 10px;
 }
-
 
 .logo {
     align-items: center;
@@ -65,7 +76,7 @@ button {
     border: none;
     outline: 1px solid white; 
     padding: 16px 50px;
-    background: rgb(145, 68, 5);
+    background: rgb(128, 170, 233);
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -74,7 +85,7 @@ button {
 }
 
 button:hover {
-    background: rgb(128, 170, 233);
+    background: rgb(145, 68, 5);
 }
 
 
@@ -130,6 +141,41 @@ ul li span {
 
 ul li span:hover {
     background: rgb(145, 68, 5);
+    color: white; /* Change text color on hover */
 }
 
 
+/* --- Footer --- */
+.foot-text {
+    font-family: "Pattaya", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: normal;
+    color:white;
+    line-height: 1.7;
+}
+
+footer {
+    font-size: 80%;
+    text-align: center;
+    padding: 2rem;
+    color: #fff;
+    margin-top: auto;
+}
+
+#socials-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0.5rem;
+}
+
+.icon {
+    font-size: 1.8rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: rgb(145, 68, 5);
+}
