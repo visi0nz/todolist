@@ -201,3 +201,8 @@ ul li.dragging {
 ul li.hovered {
     background-color: rgb(145, 68, 5); 
 }
+
+ul li.dragging:not(.checked) {
+    background: rgb(145, 68, 5) !important;
+    color: #fff;
+}
