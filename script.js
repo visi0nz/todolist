@@ -114,3 +114,44 @@ listContainer.addEventListener("drop", function (e) {
     }
     saveData();
 });
+
+// Drag and Drop for Mobile
+let touchStartY = null;
+let touchedItem = null;
+
+listContainer.addEventListener("touchstart", function(e) {
+    const li = e.target.closest("li");
+    if (!li) return;
+    touchedItem = li;
+    touchStartY = e.touches[0].clientY;
+    li.classList.add("dragging");
+}, { passive: true });
+
+listContainer.addEventListener("touchmove", function(e) {
+    if (!touchedItem) return;
+    const touchY = e.touches[0].clientY;
+    const items = Array.from(listContainer.children);
+    let swapWith = null;
+    items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (touchY > rect.top && touchY < rect.bottom && item !== touchedItem) {
+            swapWith = item;
+        }
+    });
+    if (swapWith) {
+        if (touchStartY < e.touches[0].clientY) {
+            swapWith.after(touchedItem);
+        } else {
+            swapWith.before(touchedItem);
+        }
+    }
+    touchStartY = touchY;
+}, { passive: false });
+
+listContainer.addEventListener("touchend", function(e) {
+    if (touchedItem) {
+        touchedItem.classList.remove("dragging");
+        touchedItem = null;
+        saveData();
+    }
+});
